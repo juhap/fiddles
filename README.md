@@ -1,4 +1,3 @@
-# fiddles
-Fiddles.IO
+# fiddles.io
 
-http://fiddles.io
+https://fiddles.io

@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta charset="utf-8">    
+        <meta charset="utf-8">
         <title>There's a fiddle for that!</title>
         <link rel="stylesheet" href="css/pure-min.css">
         <link href='//fonts.googleapis.com/css?family=Signika+Negative:600' rel='stylesheet' type='text/css'>
@@ -15,79 +15,79 @@
                 font-family: 'Roboto', sans-serif;
              }
              h1 {
-                font-family: 'Signika Negative', sans-serif;                
+                font-family: 'Signika Negative', sans-serif;
              }
-             .pure-button {                
-                position: relative;                                
+             .pure-button {
+                position: relative;
                 float: right;
                 width: 10em;
                 margin-top: 2em;
-             }        
+             }
              .fiddle {
                 margin-top: 2em;
                 padding: 10px;
                 background: #fefeff;
                 border: 1px solid #eee;
              }
-             .social {                                        
+             .social {
                 margin-top: 1em;
                 float: right;
-             }             
-             
-             .social div {
-                
              }
-             
+
+             .social div {
+
+             }
+
              .footer {
                 margin-top: 3em;
                 margin-bottom: 1em;
                 margin-left: 1.5em;
                 font-size: 0.8em;
-             }                      
-             
+             }
+
              .left-menu {
                 background: white;
                 margin-right: 1em;
              }
-             
+
              .left-menu .pure-menu-open {
                 margin-top: 2em;
-                background: white;  
+                background: white;
                 border: none;
              }
-             
+
              .left-menu .pure-menu-selected {
-                background: #0078e7;            
+                background: #0078e7;
              }
-             
+
              .left-menu .pure-menu-selected a {
                color: #fff;
              }
-             
-             .left-menu .pure-menu-selected a:hover {               
+
+             .left-menu .pure-menu-selected a:hover {
                 background: #0279e9;
              }
-        </style>        
+        </style>
         <script type="text/javascript">
             $(document).ready(function() {
                 var langs = [];
                 $(".fiddle").each(function(idx,elem) {
                     langs.push($(elem).data("lang").split(" "));
-                });                
+                });
                 langs = _.uniq(_.flatten(langs)).sort();
-                
+
                 _.each(langs, function(lang) {
                     $(".filters").append(
                         "<li class='pure-menu-item'><a class='pure-menu-link' href='#' data-lang='" + lang + "'>" + lang + "</a></li>"
                    );
-                }); 
+                });
                 $(".filters a").click(function(event) {
                     filter($(event.target).data("lang"));
                     $(".filters li").toggleClass("pure-menu-selected", false);
-                    $(event.target).parent().toggleClass("pure-menu-selected", true);                    
+                    $(event.target).parent().toggleClass("pure-menu-selected", true);
                 });
             });
-                                                
+
             function filter(lang) {
                 if(lang == null) {
                     $(".fiddle").show();
@@ -95,94 +95,100 @@
                     $(".fiddle").hide();
                     $(".fiddle[data-lang~='" + lang + "']").show();
                 }
-            }                                             
-        </script>        
+            }
+        </script>
     </head>
-    <body>                
+    <body>
         <div class="pure-g">
-            <div class="pure-u-1-5 left-menu">           
+            <div class="pure-u-1-5 left-menu">
                 <div class="pure-menu pure-menu-open">
                     <!--<a href="#" class="pure-menu-heading">Fiddles</a>-->
                     <ul class="filters">
-                        <li class="pure-menu-selected"><a href="#">Show all fiddles</a></li>          
+                        <li class="pure-menu-selected"><a href="#">Show all fiddles</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="pure-u-3-5">            
+            <div class="pure-u-3-5">
                 <div class="fiddle" data-lang="HTML CSS Javascript">
-                    <h1>JSFiddle</h1>                                
-                    The original. Run and share HTML/CSS/Javascript. Includes easy access to various Javascript 
-                    libraries.                    
-                    <a class="pure-button pure-button-primary" href="http://jsfiddle.net">Go to jsfiddle.net</a>                          
+                    <h1>JSFiddle</h1>
+                    The original. Run and share HTML/CSS/Javascript. Includes easy access to various Javascript
+                    libraries.
+                    <a class="pure-button pure-button-primary" href="http://jsfiddle.net">Go to jsfiddle.net</a>
                     <br style="clear: both;"/>
                 </div>
                 <div class="fiddle" data-lang="C# VB F#">
-                    <h1>.NET Fiddle</h1>                                
-                    Run and share .NET Visual Basic and C# code. Currently supports console projects.                                
-                    <a class="pure-button pure-button-primary" href="http://dotnetfiddle.net/">Go to dotnetfiddle.net</a>                            
+                    <h1>.NET Fiddle</h1>
+                    Run and share .NET Visual Basic and C# code. Currently supports console projects.
+                    <a class="pure-button pure-button-primary" href="http://dotnetfiddle.net/">Go to dotnetfiddle.net</a>
                     <br style="clear: both;"/>
                 </div>
                 <div class="fiddle" data-lang="SQL">
-                    <h1>SQL Fiddle</h1>                                
-                    Play around with database, create your schema and test SQL. Supports number of databases, 
-                    currently MySQL, Oracle, PostgreSQL, SQLite and MS SQL Server                                
-                    <a class="pure-button pure-button-primary" href="http://sqlfiddle.com/">Go to sqlfiddle.com</a>            
+                    <h1>sqlite3 Fiddle</h1>
+                    Test your SQL in sqlite3 running inside the browser.
+                    <a class="pure-button pure-button-primary" href="https://sqlite.org/fiddle/">Go to sqlite.org</a>
                     <br style="clear: both;"/>
-                </div>              
+                </div>
+                <div class="fiddle" data-lang="SQL">
+                    <h1>SQL Fiddle</h1>
+                    Play around with database, create your schema and test SQL. Supports number of databases,
+                    currently MySQL, Oracle, PostgreSQL, SQLite and MS SQL Server
+                    <a class="pure-button pure-button-primary" href="http://sqlfiddle.com/">Go to sqlfiddle.com</a>
+                    <br style="clear: both;"/>
+                </div>
                 <div class="fiddle" data-lang="RegEx">
                     <h1>Regex Fiddle</h1>
-                    Confronted with a problem, you thought "I know, I'll use regular expressions." 
+                    Confronted with a problem, you thought "I know, I'll use regular expressions."
                     <p>
                     Now you have two problems. refiddle to rescue!
-                    <a class="pure-button pure-button-primary" href="https://regex101.com/">Go to regex101</a>            
+                    <a class="pure-button pure-button-primary" href="https://regex101.com/">Go to regex101</a>
                     <br style="clear: both;"/>
-                </div>             
+                </div>
 
                 <div class="fiddle" data-lang="Elasticsearch">
                     <h1>Found: Elastic Search fiddle</h1>
-                    A comprehensive tool for playing around with Elasticsearch, a free/open source search server. 
-                    
-                    <a class="pure-button pure-button-primary" href="http://www.found.no/play">Go to www.found.no/play</a>            
+                    A comprehensive tool for playing around with Elasticsearch, a free/open source search server.
+
+                    <a class="pure-button pure-button-primary" href="http://www.found.no/play">Go to www.found.no/play</a>
                     <br style="clear: both;"/>
-                </div>             
-                
+                </div>
+
                 <div class="fiddle" data-lang="Python">
-                    <h1>Python Fiddle</h1>          
+                    <h1>Python Fiddle</h1>
                     Run and share Python code.
-                    <a class="pure-button pure-button-primary" href="http://pythonfiddle.com/">Go to pythonfiddle.com</a>            
+                    <a class="pure-button pure-button-primary" href="http://pythonfiddle.com/">Go to pythonfiddle.com</a>
                     <br style="clear: both;"/>
-                </div>             
+                </div>
                 <div class="fiddle" data-lang="Java Javascript HTML Python C C++ Dart Lisp SQL CSS Others">
-                    <h1>Tutorials Point</h1>          
+                    <h1>Tutorials Point</h1>
                     This one does not follow the official naming convention but compiles and runs code
                     written in various languages. Checkout the supported languages from the top menu bar.
                     The list is exhaustive, from Ada to Verilog via Brainf*ck and other more or less
-                    well known languages.              
-                    <a class="pure-button pure-button-primary" href="https://www.tutorialspoint.com/codingground.htm">Go to TutorialsPoint.com</a>            
+                    well known languages.
+                    <a class="pure-button pure-button-primary" href="https://www.tutorialspoint.com/codingground.htm">Go to TutorialsPoint.com</a>
                     <br style="clear: both;"/>
-                </div>             
+                </div>
                 <div class="fiddle" data-lang="R">
-                    <h1>R-Fiddle</h1>                                                  
-                    Fiddling with statistics? Try out the R-Fiddle. 
-                    <a class="pure-button pure-button-primary" href="http://www.r-fiddle.org/">Go to R-Fiddle.com</a>            
+                    <h1>R-Fiddle</h1>
+                    Fiddling with statistics? Try out the R-Fiddle.
+                    <a class="pure-button pure-button-primary" href="http://www.r-fiddle.org/">Go to R-Fiddle.com</a>
                     <br style="clear: both;"/>
-                </div>                        
+                </div>
                 <div class="fiddle" data-lang="C++ C">
-                    <h1>Interactive GCC compiler</h1>                                                  
+                    <h1>Interactive GCC compiler</h1>
                     This is not a regular fiddle. Instead of letting you execute c/c++ code the interactive
-                    compiler compiles your code and then show the assembler code. This lets you investigate 
+                    compiler compiles your code and then show the assembler code. This lets you investigate
                     what kind of machine code is generated for certain structures with specific compiler flags.
-                    <a class="pure-button pure-button-primary" href="http://gcc.godbolt.org/">Go to gcc.gobolt.org</a>            
+                    <a class="pure-button pure-button-primary" href="http://gcc.godbolt.org/">Go to gcc.gobolt.org</a>
                     <br style="clear: both;"/>
-                </div>                        
+                </div>
                 <div class="fiddle" data-lang="Clojure">
-                    <h1>Clojure JS Fiddle</h1>                                                  
-                    Clojure is a functional language that runs in JVM. Clojure JS takes Clojure code and 
+                    <h1>Clojure JS Fiddle</h1>
+                    Clojure is a functional language that runs in JVM. Clojure JS takes Clojure code and
                     compiles the code to Javascript. This fiddle lets you write Clojure code, HTML template
-                    and separate stylesheet and then see how they work together. 
-                    <a class="pure-button pure-button-primary" href="http://cljsfiddle.net/">Go to cljsfiddle.net</a>            
+                    and separate stylesheet and then see how they work together.
+                    <a class="pure-button pure-button-primary" href="http://cljsfiddle.net/">Go to cljsfiddle.net</a>
                     <br style="clear: both;"/>
-                </div> 
+                </div>
                 <div class="fiddle" data-lang="Logo">
                     <h1>Logo Interpreter</h1>
                     Logo Interepreter by Joshua Bell runs logo programs directly in your browser. To get started,
@@ -192,130 +198,130 @@
                 </div>
                 <div class="fiddle" data-lang="Brainfuck">
                     <h1>Brainfuck visualizer</h1>
-                    Getting your next big thing out with Brainfuck can sometimes be a bit overwhelming. But no worries, with this tool you can easily 
-                    step through the app. 
+                    Getting your next big thing out with Brainfuck can sometimes be a bit overwhelming. But no worries, with this tool you can easily
+                    step through the app.
                     <a class="pure-button pure-button-primary" href="https://minond.xyz/brainfuck/">Brainfuck Debugger</a>
                     <br style="clear: both;" />
                 </div>
                 <div class="fiddle" data-lang="HTML Markdown CSS LESS SCSS SASS Javascript CoffeeScript TypeScript Python Others ">
                     <h1>FiddleSalad</h1>
                     Create your own web salad by mixing your choice of markup, style and programming logic. FiddleSalad supports
-                    various languages for each part. 
+                    various languages for each part.
                     <a class="pure-button pure-button-primary" href="http://fiddlesalad.com/">Go to FiddleSalad</a>
                     <br style="clear: both;" />
                 </div>
                 <div class="fiddle" data-lang="Rust">
                     <h1>Rust Play</h1>
-                    Environment for writing and executing Rust programs. 
-                    <a class="pure-button pure-button-primary" href="https://play.rust-lang.org/">Go to Rust Play</a>            
+                    Environment for writing and executing Rust programs.
+                    <a class="pure-button pure-button-primary" href="https://play.rust-lang.org/">Go to Rust Play</a>
                     <br style="clear: both;"/>
-                </div>               
+                </div>
                 <div class="fiddle" data-lang="Others">
                     <h1>ZK Fiddle</h1>
-                    Play around with ZK Java framework for building web applications. Create UI, write Java code. Run and Test. 
-                    <a class="pure-button pure-button-primary" href="http://zkfiddle.org/">Go to ZK Fiddle</a>            
+                    Play around with ZK Java framework for building web applications. Create UI, write Java code. Run and Test.
+                    <a class="pure-button pure-button-primary" href="http://zkfiddle.org/">Go to ZK Fiddle</a>
                     <br style="clear: both;"/>
-                </div>  
+                </div>
                 <div class="fiddle" data-lang="Go">
                     <h1>Go Fiddle</h1>
                     Nice an clean environment for trying out Go, the statically typed language developed originally at Google.
-                    <a class="pure-button pure-button-primary" href="http://play.golang.org/">Go to Go Fiddle</a>            
+                    <a class="pure-button pure-button-primary" href="http://play.golang.org/">Go to Go Fiddle</a>
                     <br style="clear: both;"/>
-                </div>  
+                </div>
                 <div class="fiddle" data-lang="Swift">
                     <h1>IBM Swift sandbox</h1>
                     Apple recently open sourced Swift and now you can play around with it in the IBM Swift sandbox.
-                    The system runs on top of Linux, in Docker containers. 
-                    <a class="pure-button pure-button-primary" href="http://swiftlang.ng.bluemix.net/#/repl">Jump to sandbox</a>            
+                    The system runs on top of Linux, in Docker containers.
+                    <a class="pure-button pure-button-primary" href="http://swiftlang.ng.bluemix.net/#/repl">Jump to sandbox</a>
                     <br style="clear: both;"/>
-                </div>  
+                </div>
                 <div class="fiddle" data-lang="K">
                     <h1>oK</h1>
-                    oK is a learning environment for the <a href="http://en.wikipedia.org/wiki/K_(programming_language)">K programming language</a>. 
+                    oK is a learning environment for the <a href="http://en.wikipedia.org/wiki/K_(programming_language)">K programming language</a>.
                     In case your K-skills are a bit rusty, check out the <a href="https://github.com/JohnEarnest/ok">oK documentation</a> on Github.
-                    The thing is open source, so you can also run it on your own machine.  
-                    <a class="pure-button pure-button-primary" href="http://johnearnest.github.io/ok/index.html">oK</a>            
+                    The thing is open source, so you can also run it on your own machine.
+                    <a class="pure-button pure-button-primary" href="http://johnearnest.github.io/ok/index.html">oK</a>
                     <br style="clear: both;"/>
-                </div>  
+                </div>
                 <div class="fiddle" data-lang="PHP">
                     <h1>PHP Tester</h1>
-                    Code goes left, results come right. Easy as that to test your PHP code. PHP Tester supports multiple versions 
-                    from age old 5.x to (almost) latest and the greatest. 
-                    <a class="pure-button pure-button-primary" href="http://phptester.net">Run PHP Tester</a>            
+                    Code goes left, results come right. Easy as that to test your PHP code. PHP Tester supports multiple versions
+                    from age old 5.x to (almost) latest and the greatest.
+                    <a class="pure-button pure-button-primary" href="http://phptester.net">Run PHP Tester</a>
                     <br style="clear: both;"/>
-                </div>  
+                </div>
                 <div class="fiddle" data-lang="Turing">
                     <h1>TMFiddle</h1>
                     One fiddle to rule them all! Those who feel that everything else here is just unnecessary
                     syntactic sugar might enjoy modeling their next killer app using the Turing Machine designer and
-                    simulator. 
-                    <a class="pure-button pure-button-primary" href="http://www.tmfiddle.net/#">Go to TMFiddle</a>            
+                    simulator.
+                    <a class="pure-button pure-button-primary" href="http://www.tmfiddle.net/#">Go to TMFiddle</a>
                     <br style="clear: both;"/>
-                </div>  
+                </div>
                 <div class="fiddle" data-lang="Scala">
                     <h1>Scala Kata</h1>
-                    Practise your Scala skills in the interactive playground. Source code is available on 
+                    Practise your Scala skills in the interactive playground. Source code is available on
                     <a href="https://github.com/MasseGuillaume/ScalaKata2">Github</a>
-                    <a class="pure-button pure-button-primary" href="http://scalakata.com">This way to Scala</a>            
+                    <a class="pure-button pure-button-primary" href="http://scalakata.com">This way to Scala</a>
                     <br style="clear: both;"/>
-                </div>  
+                </div>
                 <div class="fiddle" data-lang="Ruby">
                     <h1>RubyFiddle</h1>
-                    Fiddle with the Ruby language. Create snippets and execute them (also check the 
+                    Fiddle with the Ruby language. Create snippets and execute them (also check the
                     security note on top right corner - people are so clever!</a>). Something totally not related to this
-                    Fiddle is <a href="http://www.helloruby.com">"Hello Ruby" a book about programming aimed for kids</a> by Linda Liukas. 
+                    Fiddle is <a href="http://www.helloruby.com">"Hello Ruby" a book about programming aimed for kids</a> by Linda Liukas.
                     That makes a perfect  <a href="https://www.amazon.com/Hello-Ruby-Adventures-Linda-Liukas/dp/1250065003">gift</a>!
-                    <a class="pure-button pure-button-primary" href="http://rubyfiddle.com/riddles/0a805/2">Write Ruby</a>            
+                    <a class="pure-button pure-button-primary" href="http://rubyfiddle.com/riddles/0a805/2">Write Ruby</a>
                     <br style="clear: both;"/>
-                </div>  
+                </div>
                 <div class="fiddle" data-lang="PHP">
                     <h1>PHP Fiddle</h1>
-                    Quite comprehensive looking PHP playground with different frameworks and even debugger. 
-                    <a class="pure-button pure-button-primary" href="http://phpfiddle.org">Fiddle with PHP</a>            
+                    Quite comprehensive looking PHP playground with different frameworks and even debugger.
+                    <a class="pure-button pure-button-primary" href="http://phpfiddle.org">Fiddle with PHP</a>
                     <br style="clear: both;"/>
-                </div>  
+                </div>
                 <div class="fiddle" data-lang="Python Ruby GO Rust NodeJS R GnuOctave TensorFlow">
                     <h1>Code env</h1>
                     This aint your grandmothers Fiddle. This is more like a full blown development environment
-                    where you can have your code and date. Don't let the login prompt fool you, scroll down 
-                    and choose a language or library to get right to the coding part. 
-                    <a class="pure-button pure-button-primary" href="https://codeenv.com">Go to Code</a>            
+                    where you can have your code and date. Don't let the login prompt fool you, scroll down
+                    and choose a language or library to get right to the coding part.
+                    <a class="pure-button pure-button-primary" href="https://codeenv.com">Go to Code</a>
                     <br style="clear: both;"/>
-                </div>  
+                </div>
                 <div class="fiddle" data-lang="C++">
                     <h1>C++ Shell</h1>
-                    Play around with interactive C++ shell. Supports also stdin for your "Hello, [your name here]" fiddling purposes. 
-                    <a class="pure-button pure-button-primary" href="http://cpp.sh">C++ shell</a>   
+                    Play around with interactive C++ shell. Supports also stdin for your "Hello, [your name here]" fiddling purposes.
+                    <a class="pure-button pure-button-primary" href="http://cpp.sh">C++ shell</a>
                     <br style="clear: both;"/>
-                </div>  
+                </div>
                 <div class="fiddle" data-lang="ColdFusion">
                     <h1>Try ColdFusion</h1>
                     Back in the days ColdFusion was the thing.. In case it's still for you, this is something to try.
-                    <a class="pure-button pure-button-primary" href="https://trycf.com/">Try ColdFusion</a>            
+                    <a class="pure-button pure-button-primary" href="https://trycf.com/">Try ColdFusion</a>
                     <br style="clear: both;"/>
-                </div>           
+                </div>
                 <div class="fiddle" data-lang="ColdFusion">
                     <h1>ColdFusion Fiddle</h1>
-                    This one keeps it plain and simple. Your ColdFusion code on left, results on right. 
-                    <a class="pure-button pure-button-primary" href="https://cffiddle.org/">ColdFusion Fiddle</a>            
+                    This one keeps it plain and simple. Your ColdFusion code on left, results on right.
+                    <a class="pure-button pure-button-primary" href="https://cffiddle.org/">ColdFusion Fiddle</a>
                     <br style="clear: both;"/>
-                </div>                       
+                </div>
             </div>
-            <div class="pure-u-1-5">                
-            </div>           
-            </div>        
+            <div class="pure-u-1-5">
+            </div>
+            </div>
             <div class="pure-g">
-                <div class="pure-u-1-5">                
-                </div>        
-                <div class="pure-u-3-5">                
+                <div class="pure-u-1-5">
+                </div>
+                <div class="pure-u-3-5">
                     <div class="footer">
                         Feedback? Did I miss a fiddle? Let me know via email or Twitter: <a href="mailto:juhap@iki.fi">juhap@iki.fi</a>
                         | <a href="https://twitter.com/jpalomaki">@jpalomaki</a>
                         | <a href="http://juhap.iki.fi">Juha Palom&auml;ki</a>
                     </div>
                 </div>
-                <div class="pure-u-1-5">                
-                </div>                        
+                <div class="pure-u-1-5">
+                </div>
         </div>
     </body>
 </html>n
